@@ -4,7 +4,6 @@ import bcrypt from 'bcrypt';
 import User from "../models/user.model";
 import { jwtConfig as config } from "../config";
 import { isValidUser } from "../functions/utils";
-import {Iuser, InewUser} from '../interfaces/user.interface';
 
 export const signUp = async (request: Request, response: Response): Promise<Response> => {
   const { email, password } = request.body;
@@ -41,8 +40,7 @@ export const signIn = async (request: Request, response: Response): Promise<Resp
     }
       );
     if (user) {
-      console.log({user})
-      if(await bcrypt.compare(password, user.password)){
+      if(await bcrypt.compare(password, user.dataValues.password)){
         const token = loginWebToken(user);
         return response.status(200).json({
           success: true,

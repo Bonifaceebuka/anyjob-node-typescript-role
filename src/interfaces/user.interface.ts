@@ -1,3 +1,4 @@
+import { Request } from 'express';
 export interface InewUser {
     id?: number;
     email: string;
@@ -11,3 +12,7 @@ export interface Iuser {
     updatedAt?: string;
     createdAt?: string;
 }
+
+export interface IUserAuthRequest extends Request {
+    user: any
+  }

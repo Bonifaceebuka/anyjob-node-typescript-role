@@ -1,16 +1,27 @@
 import express from "express";
-const router = express.Router();
 import {
-  signUp,
-  signIn
+    signUp,
+    signIn
 } from '../controllers/auth.controller';
+import {
+    newSavingsGroup
+} from '../controllers/savings.controller';
+import auth from "../middlewares/apiAuth.middleware";
+import {
+    signUpValidationRules,
+    signUpValidationErrors
+}from '../validators/signUp.validator';
 
 import {
-  signUpValidationRules,
-  signUpValidationErrors
-}from '../validators/signUp.validator';
- 
+    savingsGroupValidationRules,
+    savingsGroupValidationErrors
+}from '../validators/savingsGroup.validator';
+
+const router = express.Router();
 router.post('/auth/signup',signUpValidationRules, signUpValidationErrors, signUp);
 router.post('/auth/signin',signUpValidationRules, signUpValidationErrors, signIn);
+
+router.post('/savings/create_group', auth, savingsGroupValidationRules, savingsGroupValidationErrors,  newSavingsGroup);
+
 
 export default router;
