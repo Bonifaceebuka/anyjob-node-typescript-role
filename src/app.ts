@@ -3,7 +3,7 @@ import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
-// import routes from "./routes";
+import routes from "./routes";
 import { isProduction } from "./config";
 const app = express();
 
@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
-// app.use(routes);
+app.use(routes);
 
 // catch 404 and forward to error handler
 app.use(function(next: NextFunction) {

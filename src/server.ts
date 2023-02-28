@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 const http = require('http');
-const db_connection = require('./config/database');
+import {db_connect} from './config/database';
 
 const { 
   port
@@ -27,7 +27,7 @@ server.on('listening', onListening);
 /**
  * DB CONNECTION LOGIC
  */
-db_connection;
+db_connect;
 /**
  * Event listener for HTTP server "error" event.
  */

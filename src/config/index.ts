@@ -1,8 +1,6 @@
 require("dotenv").config();
 const hat = require("hat");
-
 const VRE = require("@boxpositron/vre");
-
 const validate = VRE.default;
 const { RequiredEnvironmentTypes } = VRE;
 

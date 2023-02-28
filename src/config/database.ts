@@ -1,12 +1,11 @@
 import {Sequelize} from 'sequelize';
-import { DatabaseConnection } from '../interfaces/database.types';
-import { 
+const { 
   DB_CONNECTION_DIALECT,
   DB_HOST,
   DB_DATABASE,
   DB_USERNAME,
   DB_PASSWORD
-} from './index';
+} = require('./index');
 
  const db_connect = new Sequelize(DB_DATABASE, DB_USERNAME, DB_PASSWORD, {
   host: DB_HOST,
@@ -28,4 +27,4 @@ db_connect
     console.log('Unable to connect to the database:', err);
   });
 
-module.exports = db_connect;
+export {db_connect};
