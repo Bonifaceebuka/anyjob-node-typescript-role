@@ -1,4 +1,6 @@
 import User from "../models/user.model";
+import savingsGroup from '../models/savingsGroup.model';
+import { Request } from "express";
 
 const isValidUser = async function (data: number | string) {
     if(typeof data === "number"){
@@ -33,8 +35,18 @@ const isValidUser = async function (data: number | string) {
       }
   }
 
+  const isValidGroup = async function (id: string) {
+    try{
+      const group = await savingsGroup.findByPk(id);
+        if (group) return true; //Group exists
+        return false;
+      } catch (error) {
+        return null;
+      }
+  }
+
+
   export {
     isValidUser,
-    findUserByEmail,
-    findUserById
+    isValidGroup
   }

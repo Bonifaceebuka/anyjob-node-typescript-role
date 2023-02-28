@@ -26,7 +26,7 @@ const auth = async (request: IUserAuthRequest, response: Response, next: NextFun
     if (!userId) {
       return response.status(401).json({ error: "Unauthorized access!" });
     }
-    request.user = userId;
+    request.authUser = userId;
     next();
   } catch (error) {
     return response.status(401).json({ error: "Unauthorized access!" });

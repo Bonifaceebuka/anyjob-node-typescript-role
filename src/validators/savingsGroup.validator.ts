@@ -6,17 +6,12 @@ const savingsGroupValidationRules = [
     .trim()
     .not()
     .isEmpty()
-    .withMessage('Password is required!'),
+    .withMessage('Group name is required!'),
    check('group_description')
     .trim()
     .not()
     .isEmpty()
-    .withMessage('Password is required!'),
-   check('group_creator')
-    .trim()
-    .not()
-    .isEmpty()
-    .withMessage('Password is required!')
+    .withMessage('Group description is required!')
 ];
 
 const savingsGroupValidationErrors = (req: Request, res: Response, next: NextFunction) => {

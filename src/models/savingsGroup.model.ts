@@ -16,11 +16,6 @@ savingsGroup.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        group_invite_code: {
-            type: DataTypes.STRING,
-            unique: true,
-            allowNull: false
-        },
         group_creator: {
             type: DataTypes.STRING,
             unique: true,

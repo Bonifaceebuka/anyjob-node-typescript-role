@@ -14,5 +14,5 @@ export interface Iuser {
 }
 
 export interface IUserAuthRequest extends Request {
-    user: any
+    authUser: any;
   }
